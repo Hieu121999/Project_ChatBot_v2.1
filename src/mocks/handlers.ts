@@ -52,7 +52,7 @@ export const handlers = [
       // Đẩy cả tin nhắn bot vào danh sách lưu trữ tạm thời
       messages.push(botMessage);
 
-      // Trả về tin nhắn của user (hoặc bạn có thể tối ưu thêm logic hiển thị nếu muốn)
+      // Trả về tin nhắn của user 
       return HttpResponse.json(userMessage, { status: 201 });
     } catch (error) {
       return HttpResponse.json({ error: 'Invalid request body' }, { status: 400 });

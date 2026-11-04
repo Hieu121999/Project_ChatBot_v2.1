@@ -32,9 +32,11 @@ export const ChatContainer: React.FC = () => {
   const handleSendMessage = async (text: string) => {
     try {
       await postMessage({ text, senderId: currentUserId });
+      console.log('[postMess:]', text);
       
       // Gọi lại API lấy danh sách để cập nhật cả tin nhắn của bạn và tin nhắn phản hồi của Bot
       const updatedMessages = await fetchMessages();
+      console.log('[updateMessPost:]', updatedMessages);
       setMessages(updatedMessages);
     } catch (err: any) {
       console.error('Lỗi khi gửi tin nhắn:', err);
