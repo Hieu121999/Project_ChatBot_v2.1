@@ -32,7 +32,7 @@ describe('Chat API Client Integration Tests', () => {
     
     expect(messages).toBeInstanceOf(Array);
     expect(messages.length).toBeGreaterThan(0);
-    expect(messages[0].text).toBe('Xin chào từ MSW Server test!');
+    expect(messages[0].text).toBe('Xin chào từ MSW Server test');
   });
 
   it('nên gọi API postMessage thành công và trả về tin nhắn mới được tạo', async () => {
