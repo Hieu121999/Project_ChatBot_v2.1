@@ -60,7 +60,7 @@ export const ChatContainer: React.FC = () => {
       >
         {/* Header */}
         <Box sx={{ p: 2, backgroundColor: '#1976d2', color: '#fff' }}>
-          <Typography variant="h6">Phòng Chat Trực Tuyến (MSW + Zod + MUI)</Typography>
+          <Typography variant="h6">Phòng Chat Trực Tuyến</Typography>
         </Box>
 
         {/* Hiển thị lỗi nếu có */}

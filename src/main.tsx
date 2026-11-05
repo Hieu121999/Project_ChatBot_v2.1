@@ -3,18 +3,24 @@ import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 
-// Hàm khởi động MSW ở môi trường Development của Vite
-async function enableMocking() {
-  if (import.meta.env.DEV) {
-    const { worker } = await import('./mocks/browser');
-    return worker.start();
-  }
-}
+// Hàm khởi động MSW ở môi trường Development của Vite dùng ở FE
+// async function enableMocking() {
+//   if (import.meta.env.DEV) {
+//     const { worker } = await import('./mocks/browser');
+//     return worker.start();
+//   }
+// }
 
-enableMocking().then(() => {
-  ReactDOM.createRoot(document.getElementById('root')!).render(
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>,
-  );
-});
+// enableMocking().then(() => {
+//   ReactDOM.createRoot(document.getElementById('root')!).render(
+//     <React.StrictMode>
+//       <App />
+//     </React.StrictMode>,
+//   );
+// });
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+);

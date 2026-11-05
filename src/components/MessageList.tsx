@@ -8,11 +8,13 @@ interface MessageListProps {
 }
 
 export const MessageList: React.FC<MessageListProps> = ({ messages, currentUserId }) => {
+  console.log('🔍 Mảng messages nhận vào MessageList:', messages);
   return (
     <Box 
       sx={{ 
         flex: 1, 
         overflowY: 'auto', 
+        minHeight: 0,
         p: 2, 
         display: 'flex', 
         flexDirection: 'column', 
@@ -21,6 +23,9 @@ export const MessageList: React.FC<MessageListProps> = ({ messages, currentUserI
       }}
     >
       {messages.map((msg) => {
+        // console.log('💬 Đang render tin nhắn:', msg);
+        // console.log('currentUserId', currentUserId);
+        // console.log(' msg.senderId',  msg.senderId);
         const isMe = msg.senderId === currentUserId;
         return (
           <Box
@@ -30,6 +35,12 @@ export const MessageList: React.FC<MessageListProps> = ({ messages, currentUserI
               justifyContent: isMe ? 'flex-end' : 'flex-start',
               alignItems: 'flex-end',
               gap: 1,
+              // flex: 1,              /* 👈 RẤT QUAN TRỌNG: Giúp MessageList chiếm hết khoảng trống giữa Header và ô nhập tin nhắn */
+        // overflowY: 'auto',    /* 👈 Tạo thanh cuộn dọc khi tin nhắn quá nhiều */
+        // p: 2,                 /* Khoảng đệm bên trong */
+        // display: 'flex',
+        // flexDirection: 'column',
+        // gap: 1,
             }}
           >
             {!isMe && <Avatar sx={{ bgcolor: 'secondary.main', width: 32, height: 32 }}>B</Avatar>}

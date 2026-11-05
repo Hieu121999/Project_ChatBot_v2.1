@@ -1,9 +1,13 @@
 import { messageSchema, type Message, type SendMessagePayload } from '../schemas/chatSchema';
 import { z } from 'zod';
 
+// khai bao BE
+  const API_URL = "http://localhost:8000/api/messages";
+
 // 1. Hàm gọi API lấy danh sách tin nhắn
 export const fetchMessages = async (): Promise<Message[]> => {
-  const response = await fetch('/api/messages');
+
+  const response = await fetch(`${API_URL}`);
   if (!response.ok) {
     throw new Error('Không thể tải danh sách tin nhắn từ server.');
   }
@@ -24,7 +28,7 @@ export const fetchMessages = async (): Promise<Message[]> => {
 
 // 2. Hàm gọi API gửi tin nhắn mới
 export const postMessage = async (payload: SendMessagePayload): Promise<Message> => {
-  const response = await fetch('/api/messages', {
+  const response = await fetch(`${API_URL}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
